@@ -76,6 +76,7 @@ await bar('decrypting identity.enc',1500);await sleep(300);
 await reveal();busy=false}
 addEventListener('keydown',e=>{if(e.code==='Space'||e.code==='Enter'){e.preventDefault();run()}else if(e.key==='r'||e.key==='R')run();else if(e.key==='f'||e.key==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen?.()}});
 addEventListener('click',()=>{if(!document.body.classList.contains('started'))run()});
+if(new URLSearchParams(location.search).has('auto'))setTimeout(()=>dispatchEvent(new KeyboardEvent('keydown',{code:'Space',key:' '})),600);
 const cv=$('#rain'),cx=cv.getContext('2d');let cols,drops;
 function fit(){cv.width=innerWidth;cv.height=innerHeight;cols=Math.ceil(innerWidth/18);drops=Array.from({length:cols},()=>Math.random()*-50)}
 fit();addEventListener('resize',fit);
